@@ -1,0 +1,13 @@
+2025-09-06 22:24:33,910 - INFO - 从 ./credential.txt 加载凭据
+2025-09-06 22:24:33,911 - INFO - 正在与WorldQuant Brain进行认证...
+2025-09-06 22:24:35,457 - INFO - 认证响应状态: 201
+2025-09-06 22:32:23,501 - INFO - 从 ./credential.txt 加载凭据
+2025-09-06 22:32:23,502 - INFO - 正在与WorldQuant Brain进行认证...
+2025-09-06 22:32:25,010 - INFO - 认证响应状态: 201
+2025-09-06 22:32:26,079 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-09-06 22:32:26,079 - INFO - NumExpr defaulting to 8 threads.
+2025-09-06 22:41:25,726 - INFO - 从 ./credential.txt 加载凭据
+2025-09-06 22:41:25,726 - INFO - 正在与WorldQuant Brain进行认证...
+2025-09-06 22:41:27,162 - INFO - 认证响应状态: 201
+2025-09-06 22:41:27,328 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-09-06 22:41:27,328 - INFO - NumExpr defaulting to 8 threads.

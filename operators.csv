@@ -1,0 +1,67 @@
+id,name,category,type,definition,description
+,add,Arithmetic,SCALAR,"add(x, y, filter = false), x + y","Add all inputs (at least 2 inputs required). If filter = true, filter all input NaN to 0 before adding"
+,sqrt,Arithmetic,SCALAR,sqrt(x),Square root of x
+,log,Arithmetic,SCALAR,log(x),Natural logarithm. For example: Log(high/low) uses natural logarithm of high/low ratio as stock weights.
+,subtract,Arithmetic,SCALAR,"subtract(x, y, filter=false), x - y","x-y. If filter = true, filter all input NaN to 0 before subtracting"
+,signed_power,Arithmetic,SCALAR,"signed_power(x, y)",x raised to the power of y such that final result preserves sign of x
+,sign,Arithmetic,SCALAR,sign(x),if input = NaN; return NaN
+,reverse,Arithmetic,SCALAR,reverse(x), - x
+,power,Arithmetic,SCALAR,"power(x, y)",x ^ y
+,multiply,Arithmetic,SCALAR,"multiply(x ,y, ... , filter=false), x * y",Multiply all inputs. At least 2 inputs are required. Filter sets the NaN values to 1
+,min,Arithmetic,SCALAR,"min(x, y ..)",Minimum value of all inputs. At least 2 inputs are required
+,max,Arithmetic,SCALAR,"max(x, y, ..)",Maximum value of all inputs. At least 2 inputs are required
+,inverse,Arithmetic,SCALAR,inverse(x),1 / x
+,densify,Arithmetic,SCALAR,densify(x),Converts a grouping field of many buckets into lesser number of only available buckets so as to make working with grouping fields computationally efficient
+,abs,Arithmetic,SCALAR,abs(x),Absolute value of x
+,divide,Arithmetic,SCALAR,"divide(x, y), x / y",x / y
+,and,Logical,SCALAR,"and(input1, input2)","Logical AND operator, returns true if both operands are true and returns false otherwise"
+,equal,Logical,SCALAR,input1 == input2,Returns true if both inputs are same and returns false otherwise
+,or,Logical,SCALAR,"or(input1, input2)",Logical OR operator returns true if either or both inputs are true and returns false otherwise
+,not_equal,Logical,SCALAR,input1!= input2,Returns true if both inputs are NOT the same and returns false otherwise
+,not,Logical,SCALAR,not(x),"Returns the logical negation of x. If x is true (1), it returns false (0), and if input is false (0), it returns true (1)."
+,greater,Logical,SCALAR,input1 > input2,Logic comparison operators to compares two inputs
+,greater_equal,Logical,SCALAR,input1 >= input2,"Returns true if input1 >= input2, return false otherwise"
+,less_equal,Logical,SCALAR,input1 <= input2,"Returns true if input1 <= input2, return false otherwise"
+,is_nan,Logical,SCALAR,is_nan(input),If (input == NaN) return 1 else return 0
+,if_else,Logical,SCALAR,"if_else(input1, input2, input 3)",If input1 is true then return input2 else return input3.
+,less,Logical,SCALAR,input1 < input2,"If input1 < input2 return true, else return false"
+,ts_sum,Time Series,SCALAR,"ts_sum(x, d)",Sum values of x for the past d days.
+,ts_zscore,Time Series,SCALAR,"ts_zscore(x, d)","Z-score is a numerical measurement that describes a value's relationship to the mean of a group of values. Z-score is measured in terms of standard deviations from the mean: (x - tsmean(x,d)) / tsstddev(x,d). This operator may help reduce outliers and drawdown."
+,ts_std_dev,Time Series,SCALAR,"ts_std_dev(x, d)",Returns standard deviation of x for the past d days
+,ts_mean,Time Series,SCALAR,"ts_mean(x, d)",Returns average value of x for the past d days.
+,ts_scale,Time Series,SCALAR,"ts_scale(x, d, constant = 0)","Returns (x - ts_min(x, d)) / (ts_max(x, d) - ts_min(x, d)) + constant. This operator is similar to scale down operator but acts in time series space"
+,ts_rank,Time Series,SCALAR,"ts_rank(x, d, constant = 0)","Rank the values of x for each instrument over the past d days, then return the rank of the current value + constant. If not specified, by default, constant = 0."
+,ts_quantile,Time Series,SCALAR,"ts_quantile(x,d, driver=""gaussian"" )","It calculates ts_rank and apply to its value an inverse cumulative density function from driver distribution. Possible values of driver (optional ) are ""gaussian"", ""uniform"", ""cauchy"" distribution where ""gaussian"" is the default."
+,ts_arg_min,Time Series,SCALAR,"ts_arg_min(x, d)","Returns the relative index of the min value in the time series for the past d days; If the current day has the min value for the past d days, it returns 0; If previous day has the min value for the past d days, it returns 1."
+,ts_regression,Time Series,SCALAR,"ts_regression(y, x, d, lag = 0, rettype = 0)",Returns various parameters related to regression function
+,kth_element,Time Series,SCALAR,"kth_element(x, d, k)",Returns K-th value of input by looking through lookback days. This operator can be used to backfill missing data if k=1
+,ts_corr,Time Series,SCALAR,"ts_corr(x, y, d)",Returns correlation of x and y for the past d days
+,ts_count_nans,Time Series,SCALAR,"ts_count_nans(x ,d)",Returns the number of NaN values in x for the past d days
+,ts_covariance,Time Series,SCALAR,"ts_covariance(y, x, d)",Returns covariance of y and x for the past d days
+,ts_decay_linear,Time Series,SCALAR,"ts_decay_linear(x, d, dense = false)",Returns the linear decay on x for the past d days. Dense parameter=false means operator works in sparse mode and we treat NaN as 0. In dense mode we do not.
+,ts_product,Time Series,SCALAR,"ts_product(x, d)",Returns product of x for the past d days
+,ts_delay,Time Series,SCALAR,"ts_delay(x, d)",Returns x value d days ago
+,ts_backfill,Time Series,SCALAR,"ts_backfill(x,lookback = d, k=1, ignore=""NAN"")","Backfill is the process of replacing the NAN or 0 values by a meaningful value (i.e., a first non-NaN value)"
+,ts_av_diff,Time Series,SCALAR,"ts_av_diff(x, d)","Returns x - tsmean(x, d), but deals with NaNs carefully. That is NaNs are ignored during mean computation"
+,hump,Time Series,SCALAR,"hump(x, hump = 0.01)",Limits amount and magnitude of changes in input (thus reducing turnover)
+,ts_arg_max,Time Series,SCALAR,"ts_arg_max(x, d)","Returns the relative index of the max value in the time series for the past d days. If the current day has the max value for the past d days, it returns 0. If previous day has the max value for the past d days, it returns 1"
+,last_diff_value,Time Series,SCALAR,"last_diff_value(x, d)",Returns last x value not equal to current x value from last d days
+,ts_step,Time Series,SCALAR,ts_step(1),Returns days' counter
+,ts_delta,Time Series,SCALAR,"ts_delta(x, d)","Returns x - ts_delay(x, d)"
+,days_from_last_change,Time Series,SCALAR,days_from_last_change(x),Amount of days since last change of x
+,winsorize,Cross Sectional,SCALAR,"winsorize(x, std=4)","Winsorizes x to make sure that all values in x are between the lower and upper limits, which are specified as multiple of std."
+,normalize,Cross Sectional,SCALAR,"normalize(x, useStd = false, limit = 0.0)","Calculates the mean value of all valid alpha values for a certain date, then subtracts that mean from each element"
+,quantile,Cross Sectional,SCALAR,"quantile(x, driver = gaussian, sigma = 1.0)","Rank the raw vector, shift the ranked Alpha vector, apply distribution (gaussian, cauchy, uniform). If driver is uniform, it simply subtract each Alpha value with the mean of all Alpha values in the Alpha vector"
+,rank,Cross Sectional,SCALAR,"rank(x, rate=2)","Ranks the input among all the instruments and returns an equally distributed number between 0.0 and 1.0. For precise sort, use the rate as 0"
+,scale,Cross Sectional,SCALAR,"scale(x, scale=1, longscale=1, shortscale=1)",Scales input to booksize. We can also scale the long positions and short positions to separate scales by mentioning additional parameters to the operator
+,zscore,Cross Sectional,SCALAR,zscore(x),Z-score is a numerical measurement that describes a value's relationship to the mean of a group of values. Z-score is measured in terms of standard deviations from the mean
+,vec_sum,Vector,SCALAR,vec_sum(x),Sum of vector field x
+,vec_avg,Vector,SCALAR,vec_avg(x),Taking mean of the vector field x
+,bucket,Transformational,SCALAR,"bucket(rank(x), range=""0, 1, 0.1"" or buckets = ""2,5,6,7,10"")","Convert float values into indexes for user-specified buckets. Bucket is useful for creating group values, which can be passed to GROUP as input"
+,trade_when,Transformational,SCALAR,"trade_when(x, y, z)",Used in order to change Alpha values only under a specified condition and to hold Alpha values in other cases. It also allows to close Alpha positions (assign NaN values) under a specified condition
+,group_scale,Group,SCALAR,"group_scale(x, group)",Normalizes the values in a group to be between 0 and 1. (x - groupmin) / (groupmax - groupmin)
+,group_neutralize,Group,SCALAR,"group_neutralize(x, group)","Neutralizes Alpha against groups. These groups can be subindustry, industry, sector, country or a constant"
+,group_zscore,Group,SCALAR,"group_zscore(x, group)",Calculates group Z-score - numerical measurement that describes a value's relationship to the mean of a group of values. Z-score is measured in terms of standard deviations from the mean. zscore = (data - mean) / stddev of x for each instrument within its group.
+,group_backfill,Group,SCALAR,"group_backfill(x, group, d, std = 4.0)","If a certain value for a certain date and instrument is NaN, from the set of same group instruments, calculate winsorized mean of all non-NaN values over last d days"
+,group_mean,Group,SCALAR,"group_mean(x, weight, group)",All elements in group equals to the mean
+,group_rank,Group,SCALAR,"group_rank(x, group)",Each elements in a group is assigned the corresponding rank in this group
